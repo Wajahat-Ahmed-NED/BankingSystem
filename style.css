@@ -1,0 +1,110 @@
+*{
+    font-family: 'Architects Daughter', cursive;
+    font-family: 'Arvo', serif;font-family: 'Balsamiq Sans', cursive;
+}
+body{
+    overflow:hidden ;
+    background-color: rgb(255, 255, 206);;
+}
+
+#home:hover,#transactions:hover,#users:hover{
+    /* border: 2px solid white ; */
+    background-color:goldenrod;
+    color: black;
+    text-decoration-color: black;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+li{
+    margin: 0px 10px 0px 10px ;
+}
+img{
+    /* display: block; */
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100%;
+}
+
+/* Centered text */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+
+
+  a{
+      text-decoration: none;
+      color: yellow;
+  
+}
+a:hover{
+    color: goldenrod;
+}
+button{
+    /* border: 2px solid hotpink; */
+    border-radius: 10px;
+    color: yellow;
+    /* cursor: pointer; */
+    background-color: transparent   ;
+}
+
+.main:hover{
+    color:tomato
+}
+
+/* #cap{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:white;
+    background-color: gray; 
+    text-align: justify;
+} */
+
+/* body, html {
+    height: 100%;
+  }
+  
+  .bg {
+    /* The image used */
+    /* background-image: url("img.jpg"); */
+  
+    /* Full height */
+    /* height: 100%; */
+  
+    /* Center and scale the image nicely */
+  /*      background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  } */
+
+  .user{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  width: 40%;
+  border: 4px solid black;
+  background-color: goldenrod;
+  text-align: center;
+  color: white;
+  }
+  .user1{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  width: 60%;
+  font-size: 1.3em;
+  font-weight: bold;
+  /* border: 4px solid black; */
+  /* background-color: goldenrod; */
+  text-align: center;
+  /* color: white; */
+  }

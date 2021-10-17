@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking System</title>
+    <link rel="stylesheet" href="style.css">
+     <!-- Bootstrap CSS -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+     <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+ <script>
+     const firebaseConfig = {
+     apiKey: "AIzaSyDNhgHQhOLkGFb44UteQtKaIK37r_424Dk",
+     authDomain: "banking-system-internship.firebaseapp.com",
+     databaseURL: "https://banking-system-internship-default-rtdb.firebaseio.com",
+     projectId: "banking-system-internship",
+     storageBucket: "banking-system-internship.appspot.com",
+     messagingSenderId: "486878937010",
+     appId: "1:486878937010:web:1e775be522418f6e0d6eab"
+   };
+ 
+   // Initialize Firebase
+   firebase.initializeApp(firebaseConfig);
+   firebase.analytics();
+   
+ </script>
+ 
+     <style>
+        table,
+        th,
+        td {
+            border-bottom: 1px solid #96D4D4;
+            font-size: 1.2em;
+            /* font-weight: bold; */
+            /* border-collapse: collapse; */
+        }
+
+        th,
+        td {
+
+            padding: 15px;
+
+
+        }
+        button{
+            color: black;
+            text-align: center;
+            font-weight: bold;
+            background-color: yellow;
+            border: none;
+            border-radius: 10px;
+            width: 200px;
+            font-size: 1.5em;
+            padding: 10px;
+        }
+        button:hover{
+            color: goldenrod;
+            background-color:white;
+            border: 3px solid yellow;
+        }
+        button:active{
+            background-color: gold;
+        }
+        .container{
+            /* border: 2px solid black; */
+            text-align: center;
+        }
+        </style>
+
+
+</head>
+<body style="background-color: rgb(255, 255, 206);">
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark ">
+        <div class="container-fluid ">
+          <a class="navbar-brand text-light ms-5  main"  href="index.html">Banking  System</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto me-5 mb-2 mb-lg-0 ">
+              <li class="nav-item" id="home">
+                <a class="nav-link  text-light" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item" id="users">
+                <a class="nav-link text-light" href="user.html">Users</a>
+              </li>
+              
+              <li class="nav-item" id="transactions">
+                <a class="nav-link text-light" href="transfer.html">Transactions </a>
+              </li>
+            </ul>
+            <!-- <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form> -->
+          </div>
+        </div>
+      </nav>
+      <div class="container">
+      <div class="user">
+        <h1>Transfer Amount</h1>
+    </div>
+    <br>
+    <br>
+
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Sender</th>
+            <th scope="col">Receiver</th>
+            <th scope="col">Amount</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td ><select  id="sender">
+                    <option value="0">Choose One Option</option>
+                    <option value="1">Ahmed</option>
+                    <option value="2">Wajahat</option>
+                    <option value="3">Naveed</option>
+                    <option value="4">Hammad</option>
+                    <option value="5">Babar</option>
+                    <option value="6">Huzaifa</option>
+                    <option value="7">Yamin</option>
+                    <option value="8">Zulqarnain</option>
+                    <option value="9">Almeer</option>
+                    <option value="10">Nizam</option>
+                </select></td>
+                <td><select  id="receiver">
+                  <option value="0">Choose One Option</option>
+                  <option value="1">Ahmed</option>
+                  <option value="2">Wajahat</option>
+                  <option value="3">Naveed</option>
+                  <option value="4">Hammad</option>
+                  <option value="5">Babar</option>
+                  <option value="6">Huzaifa</option>
+                  <option value="7">Yamin</option>
+                  <option value="8">Zulqarnain</option>
+                  <option value="9">Almeer</option>
+                  <option value="10">Nizam</option>
+                </select></td>
+                <td><input type="number"id="tAmount" placeholder="Enter The Amount"></td>
+            </tr>
+        </tbody>
+        </table>
+          <!-- <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td><button class="btn btn-outline-warning">Transfer</button> </td>
+          </tr> -->
+          <tr>
+        </tr>
+        </tbody>
+        </table>
+        
+
+        <!-- <button onclick="check()">Transfer</button> -->
+        <!-- Button trigger modal -->
+<!-- Button trigger modal -->
+<button type="button" onclick="check()"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Transfer
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Transaction Status</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="mod">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
+      <script src="app.js"></script>
+</body>
+</html>
